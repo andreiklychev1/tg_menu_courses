@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Menu</title>
-    <!-- Подключение шрифта Avenir через Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Avenir', Arial, sans-serif; /* Используем Avenir */
+            font-family: 'Avenir', Arial, sans-serif;
             margin: 20px;
+            background: #f0f0f0; /* Фон для контраста */
         }
         .container {
             display: flex;
@@ -17,45 +17,46 @@
             margin-bottom: 20px;
         }
         .circle {
-            width: 15vw; /* 5% ширины экрана */
-            height: 15vw; /* Круглая форма */
+            width: 15vw;
+            height: 15vw;
             border-radius: 50%;
             color: white;
             text-align: center;
-            line-height: 15vw; /* Центрирование текста */
-            font-size: 5vw; /* Размер текста адаптируется под экран */
+            line-height: 15vw;
+            font-size: 5vw;
             font-weight: bold;
             text-decoration: none;
             transition: transform 0.3s;
             flex-shrink: 0;
             margin-right: 20px;
-        }
-        .circle:hover {
-            transform: scale(1.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px); /* Размытие */
+            background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
         }
         .sql {
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Фиолетовый в голубой */
         }
         .excel {
-            background: linear-gradient(135deg, #00b09b, #96c93d);
+            background: linear-gradient(135deg, #00b09b, #ffffff); /* Зеленый в белый */
         }
         .power-bi {
-            background: linear-gradient(135deg, #f9d423, #ff4e50);
+            background: linear-gradient(135deg, #f9d423, #ff4e50); /* Желтый в красный */
         }
         .description {
-            font-size: 4vw; /* Размер текста адаптируется под экран */
+            font-size: 4vw;
             color: #333;
             text-align: left;
         }
         .description h3 {
             margin: 0;
-            font-size: 5vw; /* Заголовок немного крупнее */
+            font-size: 5vw;
             color: #000;
-            font-weight: 700; /* Жирный шрифт для заголовков */
+            font-weight: 700;
         }
         h1 {
             font-size: 6vw;
-            font-weight: 700; /* Жирный шрифт для заголовка */
+            font-weight: 700;
         }
         p {
             font-size: 4vw;
@@ -69,7 +70,6 @@
     <div class="container">
         <a href="https://t.me/analytics_research" class="circle sql">SQL</a>
         <div class="description">
-            <h3>SQL</h3>
             Основы языка и работа с базами данных. Изучите ключевые концепции и научитесь писать эффективные запросы.
         </div>
     </div>
@@ -77,7 +77,6 @@
     <div class="container">
         <a href="https://t.me/excel_analytics_research" class="circle excel">Excel</a>
         <div class="description">
-            <h3>Excel</h3>
             Основы, формулы и фишки. Освойте мощные инструменты для анализа данных и автоматизации задач.
         </div>
     </div>
@@ -85,7 +84,6 @@
     <div class="container">
         <a href="https://t.me/power_bi_analytics_research" class="circle power-bi">Power BI</a>
         <div class="description">
-            <h3>Power BI</h3>
             Основы, установка и построение визуализаций. Изучите DAX и создавайте интерактивные отчеты.
         </div>
     </div>
