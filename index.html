@@ -4,117 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Avenir', Arial, sans-serif;
-            margin: 20px;
-            background-image: linear-gradient(to right top, #f2f4f8, #ecf5fa, #e8f7f7, #e9f8ef, #f1f6e6);
-            background-size: cover; /* Растягиваем картинку на весь экран */
-            background-position: center; /* Центрируем картинку */
-            color: black; /* Белый текст для контраста */
-            position: relative;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #2A1B44; /* Новый цвет фона */
+            color: white;
         }
-        /* Затемнение фона для улучшения читаемости */
-        body::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .card {
+            display: block;
             width: 100%;
-            height: 100%;
-            background-image: linear-gradient(to right top, #f2f4f8, #ecf5fa, #e8f7f7, #e9f8ef, #f1f6e6); /* Полупрозрачный черный слой */
-            z-index: -1;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .circle {
-            width: 15vw;
-            height: 15vw;
-            border-radius: 50%;
-            color: #E7E4EC;
-            text-align: center;
-            line-height: 15vw;
-            font-size: 5vw;
-            /*font-weight: bold;*/
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-decoration: none;
-            transition: transform 0.3s;
-            flex-shrink: 0;
-            margin-right: 20px;
+            color: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
+            aspect-ratio: 6 / 5; /* Соотношение сторон 4:3 */
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(30px); /* Размытие */
-            background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
-	    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-            border: 2px solid rgba(255, 255, 255, 0.5); /* Граница для красоты */
+            padding-left: 5%; /* Уменьшенный отступ слева */
         }
-        .circle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.5; /* Полупрозрачность */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-        .sql {
-            background: linear-gradient(to right top, #b552d1, #a04bd7, #8646de, #6243e4, #1242eb);
+        .card-content {
+            padding: 15% 20px 10% 20px; /* Отступы для контента */
         }
-        .excel {
-            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); /* Зеленый в белый */
-        }
-        .power-bi {
-            background-image: linear-gradient(to right top, #fbe44b, #f5d13a, #eebf29, #e6ac17, #de9a00); /* Желтый в красный */
-        }
-        .description {
-            font-size: 2vw;
-            color: #76717F; /* Белый текст для контраста */
-            text-align: left;
-        }
-        .description h3 {
+        .card h2 {
+            font-size: 3vw; /* Адаптивный размер заголовка */
+            color: white;
             margin: 0;
-            font-size: 3vw;
-            color: black; /* Белый текст для контраста */
             font-weight: 700;
+            margin-bottom: 20px;
         }
-        h1 {
-            font-size: 4vw;
-            font-weight: 700;
-            color: black; /* Белый текст для контраста */
+        .card p {
+            font-size: 1.5vw; /* Адаптивный размер текста описания */
+            color: white;
+            margin: 5px 0;
         }
-        p {
-            font-size: 4vw;
-            color: black; /* Белый текст для контраста */
+        .card-footer {
+            position: absolute;
+            bottom: 50px;
+            left: 13%; /* Отступ слева для футера */
+            font-size: 1.5vw; /* Адаптивный размер текста для количества уроков */
+            color: #E0E0E0;
+            margin-top: 10px; /* Отступ сверху для футера */
+        }
+        .card.sql {
+            background-image: linear-gradient(to right top, #cf398e, #c33fa2, #b248b5, #9b53c7, #7a5dd6, #6271e6, #4383f3, #0093fc, #00aeff, #00c6ff, #00daf1, #16ecdf);
+        }
+        .card.excel {
+            background-image: linear-gradient(to right top, #0ca635, #21ac32, #30b22e, #3cb72a, #48bd25, #4ac222, #4cc81e, #4ecd19, #46d417, #3adb15, #29e214, #00e914);
+        }
+        .card.power-bi {
+            background-image: linear-gradient(to left bottom, #d4c100, #ddbc00, #e5b700, #edb200, #f5ad00, #f8a700, #fca000, #ff9900, #ff8f00, #ff8400, #ff7900, #ff6e00);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://t.me/analytics_research" class="circle sql">SQL</a>
-        <div class="description">
-            Основы языка и работа с базами данных. Изучите ключевые концепции и научитесь писать эффективные запросы.
+    <a href="https://t.me/analytics_research" class="card sql">
+        <div class="card-content">
+            <h2>SQL</h2>
+            <p>Основы языка и работа с базами данных. Изучите ключевые концепции и научитесь писать эффективные запросы.</p>
+            <div class="card-footer">45 уроков, 1.5 месяца</div>
         </div>
-    </div>
+    </a>
 
-    <div class="container">
-        <a href="https://t.me/excel_analytics_research" class="circle excel">Excel</a>
-        <div class="description">
-            Основы, формулы и фишки. Освойте мощные инструменты для анализа данных и автоматизации задач.
+    <a href="https://t.me/excel_analytics_research" class="card excel">
+        <div class="card-content">
+            <h2>Excel</h2>
+            <p>Основы, формулы и фишки. Освойте мощные инструменты для анализа данных и автоматизации задач.</p>
+            <div class="card-footer">30 уроков, 1 месяц</div>
         </div>
-    </div>
+    </a>
 
-    <div class="container">
-        <a href="https://t.me/power_bi_analytics_research" class="circle power-bi">PBI</a>
-        <div class="description">
-            Основы, установка и построение визуализаций. Изучите DAX и создавайте интерактивные отчеты.
+    <a href="https://t.me/power_bi_analytics_research" class="card power-bi">
+        <div class="card-content">
+            <h2>Power BI</h2>
+            <p>Основы, установка и построение визуализаций. Изучите DAX и создавайте интерактивные отчеты.</p>
+            <div class="card-footer">40 уроков, 2 месяца</div>
         </div>
-    </div>
+    </a>
 </body>
 </html>
+
