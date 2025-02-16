@@ -24,7 +24,7 @@
             text-decoration: none;
             color: inherit;
             transition: transform 0.3s, box-shadow 0.3s;
-            aspect-ratio: 6 / 5; /* Соотношение сторон 4:3 */
+            aspect-ratio: 6 / 5; /* Соотношение сторон 6:5 */
             position: relative;
             overflow: hidden;
             padding-left: 5%; /* Уменьшенный отступ слева */
@@ -37,14 +37,14 @@
             padding: 15% 20px 10% 20px; /* Отступы для контента */
         }
         .card h2 {
-            font-size: 3vw; /* Адаптивный размер заголовка */
+            font-size: 4vw; /* Увеличенный адаптивный размер заголовка */
             color: white;
             margin: 0;
             font-weight: 700;
             margin-bottom: 20px;
         }
         .card p {
-            font-size: 1.5vw; /* Адаптивный размер текста описания */
+            font-size: 3vw; /* Увеличенный адаптивный размер текста описания */
             color: white;
             margin: 5px 0;
         }
@@ -52,7 +52,7 @@
             position: absolute;
             bottom: 50px;
             left: 13%; /* Отступ слева для футера */
-            font-size: 1.5vw; /* Адаптивный размер текста для количества уроков */
+            font-size: 3vw; /* Увеличенный адаптивный размер текста для количества уроков */
             color: #E0E0E0;
             margin-top: 10px; /* Отступ сверху для футера */
         }
@@ -64,6 +64,19 @@
         }
         .card.power-bi {
             background-image: linear-gradient(to left bottom, #d4c100, #ddbc00, #e5b700, #edb200, #f5ad00, #f8a700, #fca000, #ff9900, #ff8f00, #ff8400, #ff7900, #ff6e00);
+        }
+
+        /* Медиа-запросы для улучшения читаемости на мобильных устройствах */
+        @media (max-width: 600px) {
+            .card h2 {
+                font-size: 5vw; /* Увеличенный размер заголовка для мобильных */
+            }
+            .card p {
+                font-size: 4vw; /* Увеличенный размер текста описания для мобильных */
+            }
+            .card-footer {
+                font-size: 4vw; /* Увеличенный размер текста для футера на мобильных */
+            }
         }
     </style>
 </head>
@@ -93,4 +106,3 @@
     </a>
 </body>
 </html>
-
