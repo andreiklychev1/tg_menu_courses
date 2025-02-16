@@ -9,7 +9,22 @@
         body {
             font-family: 'Avenir', Arial, sans-serif;
             margin: 20px;
-            background: #f0f0f0; /* Фон для контраста */
+            background-image: linear-gradient(to right top, #f2f4f8, #ecf5fa, #e8f7f7, #e9f8ef, #f1f6e6);
+            background-size: cover; /* Растягиваем картинку на весь экран */
+            background-position: center; /* Центрируем картинку */
+            color: black; /* Белый текст для контраста */
+            position: relative;
+        }
+        /* Затемнение фона для улучшения читаемости */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right top, #f2f4f8, #ecf5fa, #e8f7f7, #e9f8ef, #f1f6e6); /* Полупрозрачный черный слой */
+            z-index: -1;
         }
         .container {
             display: flex;
@@ -20,53 +35,67 @@
             width: 15vw;
             height: 15vw;
             border-radius: 50%;
-            color: white;
+            color: #E7E4EC;
             text-align: center;
             line-height: 15vw;
             font-size: 5vw;
-            font-weight: bold;
+            /*font-weight: bold;*/
             text-decoration: none;
             transition: transform 0.3s;
             flex-shrink: 0;
             margin-right: 20px;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px); /* Размытие */
+            backdrop-filter: blur(30px); /* Размытие */
             background: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+	    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Граница для красоты */
+        }
+        .circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /*background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);*/
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.5; /* Полупрозрачность */
         }
         .sql {
-            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Фиолетовый в голубой */
+            background: linear-gradient(to right top, #b552d1, #a04bd7, #8646de, #6243e4, #1242eb);
         }
         .excel {
-            background: linear-gradient(135deg, #00b09b, #ffffff); /* Зеленый в белый */
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); /* Зеленый в белый */
         }
         .power-bi {
-            background: linear-gradient(135deg, #f9d423, #ff4e50); /* Желтый в красный */
+            background-image: linear-gradient(to right top, #fbe44b, #f5d13a, #eebf29, #e6ac17, #de9a00); /* Желтый в красный */
         }
         .description {
-            font-size: 4vw;
-            color: #333;
+            font-size: 2vw;
+            color: #76717F; /* Белый текст для контраста */
             text-align: left;
         }
         .description h3 {
             margin: 0;
-            font-size: 5vw;
-            color: #000;
+            font-size: 3vw;
+            color: black; /* Белый текст для контраста */
             font-weight: 700;
         }
         h1 {
-            font-size: 6vw;
+            font-size: 4vw;
             font-weight: 700;
+            color: black; /* Белый текст для контраста */
         }
         p {
             font-size: 4vw;
+            color: black; /* Белый текст для контраста */
         }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать в меню!</h1>
-    <p>Выберите тему:</p>
-
     <div class="container">
         <a href="https://t.me/analytics_research" class="circle sql">SQL</a>
         <div class="description">
@@ -82,7 +111,7 @@
     </div>
 
     <div class="container">
-        <a href="https://t.me/power_bi_analytics_research" class="circle power-bi">Power BI</a>
+        <a href="https://t.me/power_bi_analytics_research" class="circle power-bi">PBI</a>
         <div class="description">
             Основы, установка и построение визуализаций. Изучите DAX и создавайте интерактивные отчеты.
         </div>
